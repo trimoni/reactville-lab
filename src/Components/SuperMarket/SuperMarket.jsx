@@ -20,6 +20,18 @@ const SuperMarket = () => {
     setCart([{ ...item, quantity: 1 }, ...cart])
     console.log('addToCart works!', item)
   }
+
+  const removeFromCart = (item) => {
+    if (item.quantity > 1) {
+      setCart(cart.map((prod) => prod.id === item.id
+        ? { ...item, quantity: item.quantity - 1 }
+        : prod
+      ))
+    } else {
+      setCart(cart.filter((prod) => prod.id !== item.id))
+    }
+  }
+
   return (
     <div className="super-market">
       <section>
@@ -27,7 +39,7 @@ const SuperMarket = () => {
         <DisplayProducts products={products} productCategory={productCatergory} addToCart={addToCart}/>
       </section>
 
-      <Cart cart={cart}/>
+      <Cart cart={cart} removeFromCart={removeFromCart} setCart={setCart}/>
 
     </div>
   )
