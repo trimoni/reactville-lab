@@ -5,9 +5,9 @@ const CategoryMenu = (props) => {
   ))]
   console.log('CATEGORIES:', categories)
   return (
-    <select>
+    <select onChange={(e) => props.setProductCategory(e.target.value)}>
       {categories.map((category, idx) => (
-        <option key={idx}>
+        <option key={idx} value={category}>
           {category}
         </option>
       ))}
