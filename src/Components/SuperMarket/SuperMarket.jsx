@@ -15,14 +15,19 @@ const SuperMarket = () => {
   console.log(productCatergory)
 
   console.log('Imported product data:::', products)
+
+  const addToCart = (item) => {
+    setCart([{ ...item, quantity: 1 }, ...cart])
+    console.log('addToCart works!', item)
+  }
   return (
     <div className="super-market">
       <section>
         <MarketNav products={products} setProductCategory={setProductCategory}/>
-        <DisplayProducts products={products} productCategory={productCatergory} />
+        <DisplayProducts products={products} productCategory={productCatergory} addToCart={addToCart}/>
       </section>
 
-      <Cart />
+      <Cart cart={cart}/>
 
     </div>
   )

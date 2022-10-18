@@ -7,6 +7,7 @@ const DisplayProducts = (props) => {
     <Product
     key={idx}
     product={product}
+    addToCart={props.addToCart}
     />
   })
   
