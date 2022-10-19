@@ -7,7 +7,7 @@ import { useState } from 'react'
 // Components & Data
 import { products } from '../../data/market-data'
 console.log(products)
-const SuperMarket = () => {
+const SuperMarket = (props) => {
 
   const [cart, setCart] = useState([])
 
@@ -39,7 +39,7 @@ const SuperMarket = () => {
         <DisplayProducts products={products} productCategory={productCatergory} addToCart={addToCart}/>
       </section>
 
-      <Cart cart={cart} removeFromCart={removeFromCart} setCart={setCart}/>
+      <Cart cart={cart} removeFromCart={removeFromCart} setCart={setCart} handleExchange={props.handleExchange}/>
 
     </div>
   )
